@@ -1,4 +1,4 @@
-# QFyooassetramework
+# QFyooassetframework
 
 #### 介绍
 完全不侵入QFramework源代码接入Yooassets资源管理框架
