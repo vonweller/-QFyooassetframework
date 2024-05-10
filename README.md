@@ -5,7 +5,7 @@
 
 #### 软件架构
 QFramework
-YooassetS
+Yooassets
 
 
 #### 安装教程
@@ -15,14 +15,20 @@ YooassetS
 2.  或者自行按照:
 
     1、新建立Unity项目
+
     2、接入Qframework
+
     3、接入Yooasset2.X及以上版本
+
     4、复制QFYooasset文件夹到unity项目中即可
+
 
 3.  注意
 
     1、QFYooasset中的QFYooAssetsAudioLoaderPool、QFYooAssetsPanelLoaderPool、QFYooAssetRes脚本写死了Yooassets加载的方式是简写加载(即可寻址包名加载,如果要使用全路径需要自行改写这3个脚本中的路径加载)
+
     2、加载方式非常简单：将QFYooassets_Init脚本挂载到场景初始化对象上作为程序入口即可。
+
     3、当前没有实现资源下载进度动画，只单纯的实现了资源加载debu进度，需要实现加载动画的自行调用QFYooassets_Init脚本中 OnDownloadProgressUpdateFunction中的返回值即可
 
 #### 使用说明
