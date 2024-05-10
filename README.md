@@ -24,10 +24,34 @@ YooassetS
     3、当前没有实现资源下载进度动画，只单纯的实现了资源加载debu进度，需要实现加载动画的自行调用QFYooassets_Init脚本中 OnDownloadProgressUpdateFunction中的返回值即可
 
 #### 使用说明
+    1、代码演示
+    IEnumerator StartGames()
+            {
+                Debug.Log("进入游戏成功");
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+                // 添加创建器加载模板与初始化接入yoo资源管理
+                ResKit.InitAsync().ToAction().Start(this);
+                UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();
+                AudioKit.Config.AudioLoaderPool = new QFYooAssetsAudioLoaderPool();
+                ResFactory.AddResCreator<QFYooAssetResCreator>();
+                
+                //这里使用的是yoo的简写路径、可以再QFYooAssetsPanelLoaderPool中声明使用简写的路径
+                //演示加载UI
+                UIKit.OpenPanelAsync<UIGameStart>().ToAction().Start(this);
+                //演示加载声音
+                AudioKit.PlayMusic("game_pass",false);
+                
+                        
+                //开始使用
+                var mresLoader = ResLoader.Allocate();
+                //演示加载跑通对象
+                mresLoader.LoadSync<GameObject>("yoo:test").Instantiate().Position(this.Position()).Show();
+                //mresLoader.LoadSceneAsync("yoo:games",onStartLoading: _ => { });
+                mresLoader.Recycle2Cache();
+            yield break ;
+            }
+        
+    2、其余使用资源加载方式与reskit、AudioKit、UIKit完全相同自行查看QF文档手册即可
 
 #### 参与贡献
 
