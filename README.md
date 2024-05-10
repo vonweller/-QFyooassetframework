@@ -55,7 +55,7 @@ YooassetS
 
 #### 参与贡献
 
-1.  感谢QFrmework，地址：https://qframework.cn/qf
+1.  感谢QFramework，地址：https://qframework.cn/qf
 2.  感谢QF群友大佬 “天下游”的全程协助
 
 
