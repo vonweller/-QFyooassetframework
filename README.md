@@ -30,11 +30,12 @@ YooassetS
                 Debug.Log("进入游戏成功");
 
                 // 添加创建器加载模板与初始化接入yoo资源管理
-                ResKit.InitAsync().ToAction().Start(this);
-                UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();
-                AudioKit.Config.AudioLoaderPool = new QFYooAssetsAudioLoaderPool();
-                ResFactory.AddResCreator<QFYooAssetResCreator>();
-                
+                ResKit.InitAsync().ToAction().Start(this);//初始化全局调用一次即可
+                UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();//初始化全局调用一次即可
+                AudioKit.Config.AudioLoaderPool = new QFYooAssetsAudioLoaderPool();//初始化全局调用一次即可
+                ResFactory.AddResCreator<QFYooAssetResCreator>();//初始化全局调用一次即可
+
+
                 //这里使用的是yoo的简写路径、可以再QFYooAssetsPanelLoaderPool中声明使用简写的路径
                 //演示加载UI
                 UIKit.OpenPanelAsync<UIGameStart>().ToAction().Start(this);
