@@ -66,6 +66,7 @@ public class QFYooAssetResCreator : IResCreator
     public bool Match(ResSearchKeys resSearchKeys)
     {
         return resSearchKeys.OriginalAssetName.StartsWith("yoo://") || resSearchKeys.OriginalAssetName.StartsWith("yoo:");
+        
     }
 }
 #endif

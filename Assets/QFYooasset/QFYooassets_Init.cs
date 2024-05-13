@@ -4,6 +4,7 @@ using System.IO;
 using QFramework;
 using QFramework.Example;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
 using YooAsset;
 
@@ -299,8 +300,21 @@ using YooAsset;
             //开始使用
             var mresLoader = ResLoader.Allocate();
             mresLoader.LoadSync<GameObject>("yoo:test").Instantiate().Position(this.Position()).Show();
-            //mresLoader.LoadSceneAsync("yoo:games",onStartLoading: _ => { });
+            
+            //场景加载目前只能这样加载
+            mresLoader.Add2Load("yoo:games", (a, b) =>
+            {
+                if (a)
+                {
+                    var oper = SceneManager.LoadSceneAsync("games",LoadSceneMode.Single);
+                }
+            });
+            
+            mresLoader.LoadAsync();
+            
             mresLoader.Recycle2Cache();
+            mresLoader = null;
+            UIKit.ClosePanel<UIGameStart>();
         yield break ;
         }
         
