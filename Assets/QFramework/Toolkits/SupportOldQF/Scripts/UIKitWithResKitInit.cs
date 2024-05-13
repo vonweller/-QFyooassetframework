@@ -17,6 +17,7 @@ namespace QFramework
         public class ResKitPanelLoader : IPanelLoader
         {
             private ResLoader mResLoader;
+
             public GameObject LoadPanelPrefab(PanelSearchKeys panelSearchKeys)
             {
                 if (mResLoader == null)
