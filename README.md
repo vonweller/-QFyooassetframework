@@ -49,10 +49,30 @@ Yooassets
                 UIKit.OpenPanelAsync<UIGameStart>().ToAction().Start(this);
                 //演示加载声音
                 AudioKit.PlayMusic("game_pass",false);
-                
-                        
+                                    
+
                 //开始使用
                 var mresLoader = ResLoader.Allocate();
+
+            //演示场景加载目前只能这样加载
+            mresLoader.Add2Load("yoo:games", (a, b) =>
+            {
+                if (a)
+                {
+                    var oper = SceneManager.LoadSceneAsync("games",LoadSceneMode.Single);
+                    while (true)
+                    {
+                        if (oper.progress>=0.9f)
+                        {
+                            break;
+                        }
+                        Debug.Log($"加载场景中...{oper.progress}");
+                        Task.Delay(100);
+                    }
+                }
+            });
+
+
                 //演示加载跑通对象
                 mresLoader.LoadSync<GameObject>("yoo:test").Instantiate().Position(this.Position()).Show();
                 //mresLoader.LoadSceneAsync("yoo:games",onStartLoading: _ => { });
