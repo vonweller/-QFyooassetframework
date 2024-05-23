@@ -21,6 +21,7 @@ Luban
     3、接入Yooasset2.X及以上版本
 
     4、复制QFYooasset文件夹到unity项目中即可
+
     5、Luban接入Unity不需要额外的操作，因为已经将代码继承在了QFluan中
 
 3.  注意
@@ -30,8 +31,11 @@ Luban
     2、加载方式非常简单：将QFYooassets_Init脚本挂载到场景初始化对象上作为程序入口即可。
 
     3、当前没有实现资源下载进度动画，只单纯的实现了资源加载debu进度，需要实现加载动画的自行调用QFYooassets_Init脚本中 OnDownloadProgressUpdateFunction中的返回值即可
+
     4、导表的使用注意直接使用LubanTools文件夹中的gen.bat即可自动生成对应json与c#代码到你当前的项目中！
+
     5、注意LubanTools文件夹位置应该位于你unity项目中且与你的Assets位于同目录下
+
     6、具体luban导表的自定义请查看Luban官方文档，简单易懂
 
 #### 使用说明
