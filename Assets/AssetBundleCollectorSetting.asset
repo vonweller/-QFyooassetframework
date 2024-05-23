@@ -24,11 +24,32 @@ MonoBehaviour:
     IgnoreDefaultType: 0
     AutoCollectShaders: 1
     Groups:
-    - GroupName: Default Group
+    - GroupName: scenes
       GroupDesc: 
       AssetTags: 
       ActiveRuleName: EnableGroup
       Collectors:
+      - CollectPath: Assets/Scenes
+        CollectorGUID: 109e9bdd0fcc649c5bc59085c35bdc83
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
+    - GroupName: ziyuan
+      GroupDesc: 
+      AssetTags: 
+      ActiveRuleName: EnableGroup
+      Collectors:
+      - CollectPath: Assets/Art/Audios
+        CollectorGUID: 35f86237059488e47b34bd5059eeb192
+        CollectorType: 0
+        AddressRuleName: AddressByFileName
+        PackRuleName: PackDirectory
+        FilterRuleName: CollectAll
+        AssetTags: 
+        UserData: 
       - CollectPath: Assets/Art/UIPrefab
         CollectorGUID: 986f3c8f091aefb44a4936c6309659c4
         CollectorType: 0
@@ -45,8 +66,8 @@ MonoBehaviour:
         FilterRuleName: CollectAll
         AssetTags: 
         UserData: 
-      - CollectPath: Assets/Art/Audios
-        CollectorGUID: 35f86237059488e47b34bd5059eeb192
+      - CollectPath: Assets/QFLuban/jsonconfig
+        CollectorGUID: 8de41feae514ee5448064813b6145c4b
         CollectorType: 0
         AddressRuleName: AddressByFileName
         PackRuleName: PackDirectory

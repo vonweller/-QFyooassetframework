@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Threading.Tasks;
 using QFramework;
 using QFramework.Example;
+using SimpleJSON;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.U2D;
@@ -158,7 +160,7 @@ using YooAsset;
         }
         #endregion
         
-        #region yooasset下载回调函数
+        #region yooasset下载回调函数与加密解密
         /// <summary>
         /// 下载数据大小
         /// </summary>
@@ -274,10 +276,11 @@ using YooAsset;
         
         #endregion
         
+        
         IEnumerator StartGames()
         {
-            Debug.Log("进入游戏成功");
-
+            
+            
             // 添加创建器加载模板与初始化接入yoo资源管理
             ResKit.InitAsync().ToAction().Start(this);
             UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();
@@ -289,13 +292,6 @@ using YooAsset;
             AudioKit.PlayMusic("game_pass",false);
             
             
-            /*
-            //如果有热更新程序集
-            var package= YooAssets.GetPackage("DefaultPackage");
-            var handlefiles = package.LoadRawFileAsync(HotDllName);
-            yield return handlefiles;
-            System.Reflection.Assembly.Load(handlefiles.GetRawFileData());
-            */
             
             //开始使用
             var mresLoader = ResLoader.Allocate();
@@ -307,15 +303,28 @@ using YooAsset;
                 if (a)
                 {
                     var oper = SceneManager.LoadSceneAsync("games",LoadSceneMode.Single);
+                    while (true)
+                    {
+                        if (oper.progress>=0.9f)
+                        {
+                            break;
+                        }
+                        Debug.Log($"加载场景中...{oper.progress}");
+                        Task.Delay(100);
+                    }
                 }
             });
+            
+            
             
             mresLoader.LoadAsync();
             
             mresLoader.Recycle2Cache();
             mresLoader = null;
             UIKit.ClosePanel<UIGameStart>();
-        yield break ;
+            //测试luban加载
+            this.gameObject.AddComponent<QFluabanMain>();
+            yield break;
         }
         
     }
