@@ -22,7 +22,7 @@ Luban
 
     4、复制QFYooasset文件夹到unity项目中即可
 
-    5、Luban接入Unity不需要额外的操作，因为已经将代码继承在了QFluan中
+    5、Luban接入Unity不需要额外的操作，因为已经将代码继承在了QFluan中,快速只接入Luban 只需要复制QFLuban文件夹与LubanTools到unity中即可
 
 3.  注意
 
