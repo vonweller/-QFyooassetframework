@@ -16,9 +16,11 @@ public class QFluabanMain : MonoBehaviour
         System.Delegate loader = loaderReturnType == typeof(ByteBuf) ?
             new System.Func<string, ByteBuf>(LoadByteBuf)
             : (System.Delegate)new System.Func<string, JSONNode>(LoadJson);
-        var tables = (cfg.Tables)tablesCtor.Invoke(new object[] {loader});
         
+        //使用方式
+        var tables = (cfg.Tables)tablesCtor.Invoke(new object[] {loader});
         Debug.Log(tables.TbItem.Get(10001).Name);
+        Debug.Log((tables.Tb.GetOrDefault(10001).Name));
 
     }
 
@@ -31,6 +33,8 @@ public class QFluabanMain : MonoBehaviour
     {
         var _mloader = ResLoader.Allocate();
         var jsons=_mloader.LoadSync<TextAsset>($"yoo:{files}").bytes;
+        _mloader.Recycle2Cache();
+        _mloader = null;
         return new ByteBuf(jsons);
     }
 
@@ -43,6 +47,9 @@ public class QFluabanMain : MonoBehaviour
     {
         var _mloader = ResLoader.Allocate();
         var jsons=_mloader.LoadSync<TextAsset>($"yoo:{files}").text;
+        _mloader.Recycle2Cache();
+        _mloader = null;
         return JSON.Parse(jsons);
+        
     }
 }
