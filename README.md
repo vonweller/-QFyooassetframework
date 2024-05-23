@@ -40,17 +40,17 @@ Luban
 
 #### 使用说明
     1、代码演示
-IEnumerator StartGames()
+        IEnumerator StartGames()
         {
-            // 添加创建器加载模板与初始化接入yoo资源管理
-            ResKit.InitAsync().ToAction().Start(this);
-            UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();
-            AudioKit.Config.AudioLoaderPool = new QFYooAssetsAudioLoaderPool();
-            ResFactory.AddResCreator<QFYooAssetResCreator>();
-            
-            //这里使用的是yoo的简写路径、可以再QFYooAssetsPanelLoaderPool中声明使用简写的路径
-            UIKit.OpenPanelAsync<UIGameStart>().ToAction().Start(this);
-            AudioKit.PlayMusic("game_pass",false);
+                // 添加创建器加载模板与初始化接入yoo资源管理
+                ResKit.InitAsync().ToAction().Start(this);
+                UIKit.Config.PanelLoaderPool = new QFYooAssetsPanelLoaderPool();
+                AudioKit.Config.AudioLoaderPool = new QFYooAssetsAudioLoaderPool();
+                ResFactory.AddResCreator<QFYooAssetResCreator>();
+                
+                //这里使用的是yoo的简写路径、可以再QFYooAssetsPanelLoaderPool中声明使用简写的路径
+                UIKit.OpenPanelAsync<UIGameStart>().ToAction().Start(this);
+                AudioKit.PlayMusic("game_pass",false);
             
             //开始使用
             var mresLoader = ResLoader.Allocate();
