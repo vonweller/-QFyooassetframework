@@ -1,0 +1,2 @@
+# -QFyooassetframework
+完全不侵入QFramework源代码接入Yooassets资源管理框架与Luban导表系统的整合框架
