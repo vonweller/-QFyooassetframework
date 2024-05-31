@@ -21,6 +21,7 @@ namespace QFramework
         
             public AudioClip LoadClip(AudioSearchKeys audioSearchKeys)
             {
+                Debug.Log("当前加载LoadClip");
                 if (mResLoader == null)
                 {
                     mResLoader = ResLoader.Allocate();
@@ -30,6 +31,7 @@ namespace QFramework
 
             public void LoadClipAsync(AudioSearchKeys audioSearchKeys, Action<bool, AudioClip> onLoad)
             {
+                Debug.Log("当前加载LoadClipAsync");
                 if (mResLoader == null)
                 {
                     mResLoader = ResLoader.Allocate();

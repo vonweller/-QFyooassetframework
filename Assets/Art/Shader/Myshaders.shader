@@ -3,7 +3,7 @@ Shader "测试shader/Myshaders"
     Properties
     {
         //贴图类型
-        
+               
         _MainTex ("Texture", 2D) = "black" {}
         _myrage("颜色范围", Range(0,1))=0.5
     }
@@ -55,6 +55,7 @@ Shader "测试shader/Myshaders"
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;
             }
+
             ENDCG
         }
     }

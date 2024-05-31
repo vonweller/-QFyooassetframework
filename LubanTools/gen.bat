@@ -7,6 +7,6 @@ dotnet %LUBAN_DLL% ^
     -c cs-simple-json ^
     -d json ^
     --conf %CONF_ROOT%\luban.conf ^
-    -x outputCodeDir=..\Assets\QFLuban/cs^
-    -x outputDataDir=..\Assets\QFLuban/jsonconfig
+    -x outputCodeDir=..\Assets\QFramework\Toolkits\_LubanKit\cs^
+    -x outputDataDir=..\Assets\QFramework\Toolkits\_LubanKit\jsonconfig
 pause
